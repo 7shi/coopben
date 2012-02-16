@@ -20,11 +20,10 @@ void create_thunk(unsigned char *thunk, void *this, void *func) {
     thunk[15] = 0xc3;
 }
 
-typedef struct tagNumber Number;
-struct tagNumber {
+typedef struct {
     void (*show)(void);
     int n;
-};
+} Number;
 
 void Number_show(Number *this) {
     printf("%p: n = %d\n", &this->n, this->n);
@@ -51,14 +50,13 @@ void Number_delete(Number *this) {
     free(this);
 }
 
-typedef struct tagPair Pair;
-struct tagPair {
+typedef struct {
     union {
         void (*show)(void);
         Number base;
     };
     int n2;
-};
+} Pair;
 
 void Pair_show(Pair *this) {
     Number_show((Number *)this);
