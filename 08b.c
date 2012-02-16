@@ -56,7 +56,7 @@ void Pair_delete(Pair *this) {
     free(this);
 }
 
-int main() {
+int main(void) {
     Number *n;
 
     n = Number_new(1);
@@ -68,4 +68,6 @@ int main() {
     printf("\n%p: Pair\n", n);
     n->show(n);
     Pair_delete((Pair *)n);
+
+    return 0;
 }

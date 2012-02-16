@@ -85,7 +85,7 @@ void Pair_clear(Pair *this) {
     this->n2 = 0;
 }
 
-int main() {
+int main(void) {
     Number *n;
 
     n = Number_new(1);
@@ -101,4 +101,6 @@ int main() {
     n->vtable->clear(n);
     n->vtable->show(n);
     Pair_delete((Pair *)n);
+
+    return 0;
 }

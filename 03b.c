@@ -21,11 +21,12 @@ int Numbers_sum(Numbers *this) {
     return ret;
 }
 
-int main() {
+int main(void) {
     Numbers nums;
     Numbers_init(&nums);
     Numbers_add(&nums, 1);
     Numbers_add(&nums, 2);
     Numbers_add(&nums, 3);
     printf("%d\n", Numbers_sum(&nums));
+    return 0;
 }

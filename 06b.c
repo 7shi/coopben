@@ -17,7 +17,7 @@ void Counter_delete(Counter *this) {
     free(this);
 }
 
-int main() {
+int main(void) {
     Counter *c1 = Counter_new(1);
     Counter *c2 = Counter_new(2);
     Counter *c3 = Counter_new(3);
@@ -28,4 +28,5 @@ int main() {
     printf("%d\n", Counter_count);
     Counter_delete(c3);
     printf("%d\n", Counter_count);
+    return 0;
 }

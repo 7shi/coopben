@@ -72,7 +72,7 @@ void Pair_show(Pair *this) {
     printf("%p: n2 = %d\n", &this->n2, this->n2);
 }
 
-int main() {
+int main(void) {
     Number *n;
 
     n = Number_new(1);
@@ -84,4 +84,6 @@ int main() {
     printf("\n%p: Pair\n", n);
     n->vtable->show(n);
     Pair_delete((Pair *)n);
+
+    return 0;
 }

@@ -12,7 +12,7 @@ void B_showB(B *this) {
     printf("%p: b = %d\n", &this->b, this->b);
 }
 
-int main() {
+int main(void) {
     A a;
     B b;
 

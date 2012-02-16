@@ -21,7 +21,7 @@ int Pair_add(Pair *this) {
     return this->a + this->b;
 }
 
-int main() {
+int main(void) {
     Pair *pair = Pair_new(1, 2);
     printf("%d\n", Pair_add(pair));
     Pair_delete(pair);
