@@ -13,7 +13,7 @@ int Pair_add(Pair *this) {
     return this->a + this->b;
 }
 
-int main(){
+int main() {
     Pair pair;
     Pair_init(&pair, 1, 2);
     printf("%d\n", Pair_add(&pair));
