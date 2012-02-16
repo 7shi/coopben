@@ -6,7 +6,6 @@ void A_showA(A *this) {
     printf("%p: a = %d\n", &this->a, this->a);
 }
 
-
 typedef struct { A base; int b; } B;
 
 void B_showB(B *this) {
