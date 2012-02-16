@@ -1,4 +1,4 @@
-TARGETS = 01a 01a.s 01b 01c 01c.s 01d
+TARGETS = 01a 01a.s 01b 01c 01c.s 01d 02a 02b
 DISFLAGS = -masm=intel
 
 all: $(TARGETS)
