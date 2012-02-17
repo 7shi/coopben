@@ -122,7 +122,10 @@ struct tagPair3 {
         struct vtbl_Pair3 *vtable;
         Pair1 base;
     };
-    Pair2 base2;
+    union {
+        struct vtbl_Pair3 *vtable2;
+        Pair2 base2;
+    };
     int n4;
 };
 
@@ -130,6 +133,7 @@ void Pair3_init(Pair3 *this, int n, int n2, int nn, int n3, int n4) {
     Pair1_init(&this->base , n , n2);
     Pair2_init(&this->base2, nn, n3);
     this->vtable = &vtable_Pair3;
+    this->vtable2 = &vtable_Pair3;
     this->n4 = n4;
 }
 
