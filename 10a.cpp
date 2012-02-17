@@ -55,5 +55,7 @@ int main() {
     printf("%p:    Number\n", n2);
     printf("%p:   Pair2 (reinterpret_cast)\n", p2_2);
     p3->show();
+    printf("p2->show()\n");
+    p2->show();
     delete p3;
 }

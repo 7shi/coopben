@@ -10,6 +10,7 @@ void Number_show(Number *);
 void Pair1_show(Pair1 *);
 void Pair2_show(Pair2 *);
 void Pair3_show(Pair3 *);
+void Pair3_show_Pair2(Pair2 *);
 
 struct vtbl_Number {
     void (*show)(Number *);
@@ -33,6 +34,10 @@ struct vtbl_Pair3 {
     void (*show)(Pair3 *);
 } vtable_Pair3 = {
     Pair3_show
+};
+
+struct vtbl_Pair2 vtable_Pair3_Pair2 = {
+    Pair3_show_Pair2
 };
 
 struct tagNumber {
@@ -123,7 +128,7 @@ struct tagPair3 {
         Pair1 base;
     };
     union {
-        struct vtbl_Pair3 *vtable2;
+        struct vtbl_Pair2 *vtable2;
         Pair2 base2;
     };
     int n4;
@@ -133,7 +138,7 @@ void Pair3_init(Pair3 *this, int n, int n2, int nn, int n3, int n4) {
     Pair1_init(&this->base , n , n2);
     Pair2_init(&this->base2, nn, n3);
     this->vtable = &vtable_Pair3;
-    this->vtable2 = &vtable_Pair3;
+    this->vtable2 = &vtable_Pair3_Pair2;
     this->n4 = n4;
 }
 
@@ -153,6 +158,10 @@ void Pair3_show(Pair3 *this) {
     printf("%p: n4 = %d\n", &this->n4, this->n4);
 }
 
+void Pair3_show_Pair2(Pair2 *this) {
+    Pair3_show((Pair3 *)(((char *)this) - sizeof(Pair1)));
+}
+
 int main(void) {
     Pair3 *p3 = Pair3_new(1, 2, 3, 4, 5);
     Pair1 *p1 = &p3->base;
@@ -167,6 +176,8 @@ int main(void) {
     printf("%p:    Number\n", n2);
     printf("%p:   Pair2 (cast)\n", p2_2);
     p3->vtable->show(p3);
+    printf("p2->show()\n");
+    p2->vtable->show(p2);
     Pair3_delete(p3);
     return 0;
 }
