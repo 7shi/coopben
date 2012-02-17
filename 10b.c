@@ -153,19 +153,20 @@ void Pair3_show(Pair3 *this) {
     printf("%p: n4 = %d\n", &this->n4, this->n4);
 }
 
-int main() {
-	Pair3 *p3 = Pair3_new(1, 2, 3, 4, 5);
-	Pair1 *p1 = &p3->base;
-	Pair2 *p2 = &p3->base2;
+int main(void) {
+    Pair3 *p3 = Pair3_new(1, 2, 3, 4, 5);
+    Pair1 *p1 = &p3->base;
+    Pair2 *p2 = &p3->base2;
     Pair2 *p2_2 = (Pair2 *)p3;
-	Number *n1 = &p1->base;
-	Number *n2 = &p2->base;
-	printf("%p: Pair3\n", p3);
-	printf("%p:   Pair1\n", p1);
-	printf("%p:    Number\n", n1);
-	printf("%p:   Pair2\n", p2);
-	printf("%p:    Number\n", n2);
-	printf("%p:   Pair2 (cast)\n", p2_2);
-	p3->vtable->show(p3);
+    Number *n1 = &p1->base;
+    Number *n2 = &p2->base;
+    printf("%p: Pair3\n", p3);
+    printf("%p:   Pair1\n", p1);
+    printf("%p:    Number\n", n1);
+    printf("%p:   Pair2\n", p2);
+    printf("%p:    Number\n", n2);
+    printf("%p:   Pair2 (cast)\n", p2_2);
+    p3->vtable->show(p3);
     Pair3_delete(p3);
+    return 0;
 }
