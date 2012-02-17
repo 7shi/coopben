@@ -6,7 +6,7 @@ void create_thunk(unsigned char *thunk, void *this, void *func) {
     // push this
     thunk[0] = 0x68;
     *(void **)&thunk[1] = this;
-    // mov eax, show
+    // mov eax, func
     thunk[5] = 0xb8;
     *(void **)&thunk[6] = func;
     // call eax
