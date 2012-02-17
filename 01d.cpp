@@ -4,16 +4,14 @@ class Pair {
 public:
     int a, b;
     int add() { return a + b; }
-    int add(int);
+    int add(int c) { return a + b + c; }
+    int add(int c, int d) { return a + b + c + d; }
 };
 
-extern "C" int _ZN4Pair3addEv(Pair *);
-extern "C" int _ZN4Pair3addEi(Pair *p, int c) {
-    return _ZN4Pair3addEv(p) + c;
-}
 
 int main() {
     Pair pair = { 1, 2 };
-    printf("%d, %d\n", pair.add(), _ZN4Pair3addEv(&pair));
-    printf("%d, %d\n", pair.add(3), _ZN4Pair3addEi(&pair, 3));
+    printf("%d\n", pair.add());
+    printf("%d\n", pair.add(3));
+    printf("%d\n", pair.add(3, 4));
 }
