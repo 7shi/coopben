@@ -52,7 +52,7 @@ struct tagPair {
 };
 
 void Pair_init(Pair *this, int n, int n2) {
-    Number_init((Number *)this, n);
+    Number_init(&this->base, n);
     this->vtable = &vtable_Pair;
     this->n2 = n2;
 }
@@ -64,11 +64,11 @@ Pair *Pair_new(int n, int n2) {
 }
 
 void Pair_delete(Pair *this) {
-    Number_delete((Number *)this);
+    Number_delete(&this->base);
 }
 
 void Pair_show(Pair *this) {
-    Number_show((Number *)this);
+    Number_show(&this->base);
     printf("%p: n2 = %d\n", &this->n2, this->n2);
 }
 
