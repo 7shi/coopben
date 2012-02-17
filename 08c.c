@@ -64,7 +64,7 @@ Pair *Pair_new(int n, int n2) {
 }
 
 void Pair_delete(Pair *this) {
-    free(this);
+    Number_delete((Number *)this);
 }
 
 void Pair_show(Pair *this) {
